@@ -24,7 +24,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const mnemonic = process.env.MNEMONIC;
-const infuraClientId = process.env.INFURA_CLIENT_ID;
+const infuraClientId = process.env.INFURA_PROJECT_ID;
 
 module.exports = {
   /**
