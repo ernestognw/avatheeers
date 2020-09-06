@@ -21,8 +21,17 @@
     .hidden {
       display: none !important;
     }
+
+    .uk-notification-message {
+      background: #222;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .fade {
+      opacity: 0.7;
+    }
   </style>
-  <title>Avatheer</title>
+  <title>Avatheeer</title>
 </head>
 
 <body>
@@ -36,8 +45,8 @@
     <h1 class="uk-heading-medium uk-text-center">Welcome!</h1>
     <h3 id="start-message" class="uk-text-center">Please connect your metamask
       account to begin.</h3>
-    <img src="https://metamask.io/images/mm-logo.svg" class="uk-align-center" />
-    <button class="uk-button uk-button-primary uk-align-center">Connect</button>
+    <img src="./metamask.svg" class="uk-align-center" />
+    <button id="connect-button" class="uk-button uk-button-primary uk-align-center">Connect</button>
   </div>
 
   <!-- Main  -->
@@ -48,7 +57,7 @@
     <!-- Navigation -->
     <ul class="uk-flex-center" uk-tab="animation: uk-animation-fade">
       <li class="uk-active"><a href="#">Create new</a></li>
-      <li id="inventory-tab"><a href="#">Inventory</a></li>
+      <li><a id="inventory-tab" href="#">Inventory</a></li>
     </ul>
 
     <ul class="uk-switcher uk-margin">
@@ -56,8 +65,7 @@
       <li class="uk-active">
         <h2 class="uk-text-center">Create new Avatheeer</h2>
 
-        <img class="uk-align-center"
-          src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription01&hairColor=BrownDark&hatColor=White&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=PastelOrange&graphicType=Selena&eyeType=Wink&eyebrowType=UpDown&mouthType=Disbelief&skinColor=DarkBrowng" />
+        <img class="uk-align-center" id="avatheeer-container" height="350" width="350" src="./images/placeholder.png" />
 
         <form class="uk-margin uk-text-center" uk-margin>
           <input class="uk-input uk-form-width-medium" type="text" id="create-input" maxlength="20"
@@ -71,120 +79,6 @@
         <h2 class="uk-text-center">Your inventory</h2>
         <!-- Pizza containers will be appended to this div -->
         <div id="inventory-container" class="inventory-list">
-          <div class="uk-card uk-card-default">
-            <div class="uk-card-header">
-              <div class="uk-grid-small uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="uk-body uk-padding-small">
-              <img class="uk-align-center"
-                src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription01&hairColor=BrownDark&hatColor=White&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=PastelOrange&graphicType=Selena&eyeType=Wink&eyebrowType=UpDown&mouthType=Disbelief&skinColor=DarkBrowng" />
-            </div>
-            <div class="uk-card-footer">
-              <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">Button</button>
-              <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Button</button>
-            </div>
-          </div>
-          <div class="uk-card uk-card-default">
-            <div class="uk-card-header">
-              <div class="uk-grid-small uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="uk-body uk-padding-small">
-              <img class="uk-align-center"
-                src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription01&hairColor=BrownDark&hatColor=White&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=PastelOrange&graphicType=Selena&eyeType=Wink&eyebrowType=UpDown&mouthType=Disbelief&skinColor=DarkBrowng" />
-            </div>
-            <div class="uk-card-footer">
-              <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">Button</button>
-              <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Button</button>
-            </div>
-          </div>
-          <div class="uk-card uk-card-default">
-            <div class="uk-card-header">
-              <div class="uk-grid-small uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="uk-body uk-padding-small">
-              <img class="uk-align-center"
-                src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription01&hairColor=BrownDark&hatColor=White&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=PastelOrange&graphicType=Selena&eyeType=Wink&eyebrowType=UpDown&mouthType=Disbelief&skinColor=DarkBrowng" />
-            </div>
-            <div class="uk-card-footer">
-              <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">Button</button>
-              <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Button</button>
-            </div>
-          </div>
-          <div class="uk-card uk-card-default">
-            <div class="uk-card-header">
-              <div class="uk-grid-small uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="uk-body uk-padding-small">
-              <img class="uk-align-center"
-                src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription01&hairColor=BrownDark&hatColor=White&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=PastelOrange&graphicType=Selena&eyeType=Wink&eyebrowType=UpDown&mouthType=Disbelief&skinColor=DarkBrowng" />
-            </div>
-            <div class="uk-card-footer">
-              <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">Button</button>
-              <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Button</button>
-            </div>
-          </div>
-          <div class="uk-card uk-card-default">
-            <div class="uk-card-header">
-              <div class="uk-grid-small uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="uk-body uk-padding-small">
-              <img class="uk-align-center"
-                src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription01&hairColor=BrownDark&hatColor=White&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=PastelOrange&graphicType=Selena&eyeType=Wink&eyebrowType=UpDown&mouthType=Disbelief&skinColor=DarkBrowng" />
-            </div>
-            <div class="uk-card-footer">
-              <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">Button</button>
-              <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Button</button>
-            </div>
-          </div>
-          <div class="uk-card uk-card-default">
-            <div class="uk-card-header">
-              <div class="uk-grid-small uk-flex-middle" uk-grid>
-                <div class="uk-width-expand">
-                  <h3 class="uk-card-title uk-margin-remove-bottom">Title</h3>
-                  <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="uk-body uk-padding-small">
-              <img class="uk-align-center"
-                src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairFroBand&accessoriesType=Prescription01&hairColor=BrownDark&hatColor=White&facialHairType=BeardMagestic&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=PastelOrange&graphicType=Selena&eyeType=Wink&eyebrowType=UpDown&mouthType=Disbelief&skinColor=DarkBrowng" />
-            </div>
-            <div class="uk-card-footer">
-              <button class="uk-button uk-button-default uk-width-1-1 uk-margin-small-bottom">Button</button>
-              <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Button</button>
-            </div>
-          </div>
         </div>
       </li>
     </ul>

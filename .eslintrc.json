@@ -5,7 +5,8 @@
     "es2021": true
   },
   "globals": {
-    "artifacts": true
+    "artifacts": true,
+    "UIkit": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {

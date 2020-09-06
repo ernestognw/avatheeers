@@ -1,10 +1,11 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.6.2;
 
 // Imports symbols from other files into the current contract.
 // In this case, a series of helper contracts from OpenZeppelin.
 // Learn more: https://solidity.readthedocs.io/en/v0.6.2/layout-of-source-files.html#importing-other-source-files
 
-// IERC721 is the ERC721 interface that we'll use to make Avatheeers ERC721 compliant
+// IERC721 is the ERC721 interface that we'll use to make Avatheeer ERC721 compliant
 // More about ERC721: https://eips.ethereum.org/EIPS/eip-721
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 // IERC721Receiver must be implemented to accept safe transfers.
@@ -19,7 +20,7 @@ import "@openzeppelin/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
 // The `is` keyword is used to inherit functions and keywords from external contracts.
-// In this case, `Avatheeers` inherits from the `IERC721` and `ERC165` contracts.
+// In this case, `Avatheeer` inherits from the `IERC721` and `ERC165` contracts.
 // Learn more: https://solidity.readthedocs.io/en/v0.6.2/contracts.html#inheritance
 contract Avatheeers is IERC721, ERC165 {
     // Uses OpenZeppelin's SafeMath library to perform arithmetic operations safely.
@@ -59,9 +60,6 @@ contract Avatheeers is IERC721, ERC165 {
     // Mapping to validate that dna is not already taken
     mapping(uint256 => bool) public dnaAvatheeerExists;
 
-    // Mapping to validate that name is not already taken
-    mapping(string => bool) public nameAvatheeerExists;
-
     // Mapping from token ID to approved address
     mapping(uint256 => address) avatheeerApprovals;
 
@@ -69,11 +67,7 @@ contract Avatheeers is IERC721, ERC165 {
     mapping(address => mapping(address => bool)) private operatorApprovals;
 
     // Check if Avatheeer is unique and doesn't exist yet
-    modifier isUnique(string memory _name, uint256 _dna) {
-        require(
-            !nameAvatheeerExists[_name],
-            "Avatheeer with such name already exists."
-        );
+    modifier isUnique(uint256 _dna) {
         require(
             !dnaAvatheeerExists[_dna],
             "Avatheeer with such dna already exists."
@@ -112,7 +106,7 @@ contract Avatheeers is IERC721, ERC165 {
         // Learn more: https://solidity.readthedocs.io/en/v0.6.2/contracts.html#visibility-and-getters
         // `isUnique` is a function modifier that checks if the avatheeer already exists
         // Learn more: https://solidity.readthedocs.io/en/v0.6.2/structure-of-a-contract.html#function-modifiers
-        isUnique(_name, _dna)
+        isUnique(_dna)
     {
         // Adds Avatheeer to array of Avatheeers and get id
         avatheeers.push(Avatheeer(_name, _dna));
@@ -120,7 +114,6 @@ contract Avatheeers is IERC721, ERC165 {
 
         // Mark as existent avatheeer name and dna
         dnaAvatheeerExists[_dna] = true;
-        nameAvatheeerExists[_name] = true;
 
         // Checks that Avatheeer owner is the same as current user
         // Learn more: https://solidity.readthedocs.io/en/v0.6.2/control-structures.html#error-handling-assert-require-revert-and-exceptions
