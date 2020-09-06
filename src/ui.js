@@ -88,7 +88,7 @@ class UI {
 
         // Ropsten ID
         if (netId !== 3) {
-          this.containers.loading.innerText = ropstenRequest;
+          this.containers.loading.innerHTML = ropstenRequest;
           notify('This DApp needs to be loaded in Ropsten');
           return;
         }
